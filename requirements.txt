@@ -1,0 +1,13 @@
+openai
+python-dotenv
+pinecone-client
+pinecone-datasets
+langchain
+datasets
+icecream
+torch==2.2.1
+tiktoken
+fastapi 
+httpx
+uvicorn
+websockets
