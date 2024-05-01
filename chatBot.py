@@ -233,9 +233,10 @@ class ChatBot:
             top_p=0.95,
             frequency_penalty=0,
             presence_penalty=0,
+            stream=True,
             stop=None,
             messages=messages
         )
         ic("[BOT] Respond: Finished")
-        print(response)
+        
         return response.choices[0].message.content
