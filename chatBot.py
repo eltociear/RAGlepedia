@@ -239,4 +239,4 @@ class ChatBot:
         )
         ic("[BOT] Respond: Finished")
         
-        return response.choices[0].message.content
+        return response
