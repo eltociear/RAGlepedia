@@ -41,6 +41,20 @@ Install the necessary dependencies by running:
 pip install -r requirements.txt
 ```
 
+You will also need to have an Azure subscription, and create an .env file having the following variables:
+```
+AZURE_OPENAI_API_KEY=<YOUR_OPENAI_KEY>
+OPENAI_MODEL_NAME=<YOUR_OPENAI_MODEL>
+OPENAI_MODEL_VERSION=<YOUR_VERSION>
+OPENAI_MODEL_DEPLOYMENT_VERSION=<YOUR_OPENAI_DEPLOYMENT_MODEL>
+AZURE_OPENAI_ENDPOINT=<YOUR_OPENAI_ENDPOINT>
+OPENAI_API_TYPE=azure
+OPENAI_API_VERSION=2023-07-01-preview
+PINECONE_API_KEY=<YOUR_PINECONE_KEY>
+PINECONE_INDEX_NAME=<YOUR_PINECONE_INDEX>
+EMBEDDINGS_MODEL_NAME=<YOUR_OPENAI_EMBEDDING>
+```
+
 ### 3. Application
 Run the Application Locally. Once dependencies are installed, you can run the FastAPI application locally by executing:
 
