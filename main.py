@@ -86,7 +86,7 @@ async def chat_endpoint(websocket: WebSocket):
             messages.append({"role": "user", "content": f"'QUESTION': {user_message}"})
             memory.append(context_str)
             # Send message to Azure OpenAI and get response
-            chatbot_response = await get_openai_response(messages)
+            chatbot_response = await get_openai_response(websocket, messages)
             memory.append(chatbot_response)
 
             # then append to history messages
@@ -101,14 +101,24 @@ async def chat_endpoint(websocket: WebSocket):
         websocket_clients.remove(websocket)
 
 
-async def get_openai_response(message: str) -> str:
+async def get_openai_response(websocket, message: str) -> str:
     async with AsyncClient() as client:
 
         response = chatbot.respond(message)
+        responses = []
+        for chunk in response:
+            if len(chunk.choices) > 0:
+                msg = chunk.choices[0].delta.content
+                msg = "" if msg is None else msg
+                responses.append(msg)
+
+                await websocket.send_text(msg)
+
+        response = "".join(response)
         return response
 
 
 if __name__ == "__main__":
     import uvicorn
 
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8001)
