@@ -92,9 +92,9 @@ async def chat_endpoint(websocket: WebSocket):
             # then append to history messages
             messages.append({"role": "assistant", "content": chatbot_response})
 
-            # Broadcast the response to all connected clients
-            for client in websocket_clients:
-                await client.send_text(chatbot_response)
+            # # Broadcast the response to all connected clients
+            # for client in websocket_clients:
+            #     await client.send_text(chatbot_response)
 
     finally:
         # Remove the websocket from the list of clients if connection is closed
