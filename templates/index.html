@@ -101,10 +101,10 @@
       };
 
       // when user send message, send through sockets and append a new DIV element
-      ws.onmessage = (event) => {
-        const message = event.data;
-        appendMessage(message, "received");
-      };
+      // ws.onmessage = (event) => {
+      //   const message = event.data;
+      //   updateChat(message, "received");
+      // };
 
       sendButton.addEventListener("click", () => {
         const message = messageInput.value.trim();
@@ -112,8 +112,29 @@
           appendMessage(message, "sent");
           ws.send(message);
           messageInput.value = "";
+          appendMessage("", "received");
         }
       });
+
+      // updates the chat box with the new message
+      ws.onmessage = (event) => {
+        const message = event.data;
+        updateChat(message);
+      };
+
+      // updates the existing message in the chat box
+      function updateChat(message) {
+        
+        const messageElements = chatBox.getElementsByClassName("message");
+        // Update the text content of the last message element
+        const lastMessageElement =
+          messageElements[messageElements.length - 1];
+        lastMessageElement.textContent += message;
+
+        // set maximum scroll
+        chatBox.scrollTop = chatBox.scrollHeight;
+        
+      }
 
       // appends a new DIV element for each message
       function appendMessage(message, type) {
