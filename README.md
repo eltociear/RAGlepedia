@@ -11,6 +11,10 @@ RAGlepedia is designed to be your ultimate companion, providing precise and rele
 - **Advanced AI Capabilities:** Leveraging **Generative AI (GenAI)** models for intelligent responses.
 - **Retrieval-Augmented Generation (RAG):** Incorporating the RAG model for precise and relevant answers. Used **Pinecone** for **Vector Database**.
 - **Web API:** Simple **FastAPI** interface for user-agent interaction.
+## To be added features
+- [ ] Add static templates and use FastAPI framework to load them
+- [ ] Add RAG control
+- [ ] Create a more friendly UI
 
 ## Getting Started
 
