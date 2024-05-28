@@ -1,10 +1,10 @@
-# GenAI-RAG-Agent
+# RAGlepedia
 
-Welcome to GenAI-RAG Agent, your cutting-edge virtual Agent powered by Generative AI (GenAI) models and the innovative Retrieval-Augmented Generation (RAG) approach!
+Welcome to RAGlepedia, your cutting-edge virtual Agent powered by Generative AI (GenAI) models and the innovative Retrieval-Augmented Generation (RAG) approach!
 
 ## About
 
-GenAI-RAG Agent is designed to be your ultimate companion, providing precise and relevant answers to your queries through state-of-the-art AI technology. With the integration of the RAG model, GenAI-RAG Agent ensures that you receive accurate information tailored to your needs.
+RAGlepedia is designed to be your ultimate companion, providing precise and relevant answers to your queries using context received from VectorDB that contains Wikipedia articles, through state-of-the-art AI technology. With the integration of the RAG model, RAGlepedia ensures that you receive accurate information tailored to your needs.
 
 ## Features
 
@@ -14,7 +14,7 @@ GenAI-RAG Agent is designed to be your ultimate companion, providing precise and
 
 ## Getting Started
 
-To start using GenAI-RAG Agent, follow these simple steps:
+To start using RAGlepedia, follow these simple steps:
 
 ### 1. Environment Setup
 
@@ -22,17 +22,17 @@ Follow these steps to set up your environment:
 - Clone the Repository:
 
 ```bash
-git clone https://github.com/zaaachos/GenAI-RAG-Agent.git
+git clone https://github.com/zaaachos/RAGlepedia.git
 ```
 
 - Install Dependencies:
   
 It is highly recommended, to use **conda** as your virtual enviroment:
 ```bash
-conda create -n chatbot python=3.9
+conda create -n wikienv python=3.9
 ```
 ```bash
-conda activate chatbot
+conda activate wikienv
 ```
 
 ### 2. Dependencies
