@@ -11,7 +11,7 @@ import os
 from pathlib import Path
 
 from utils.data import WikiDataset, create_dataloader
-from utils.vector_db import VectorStore
+from src.api.clients.rag_client import VectorStore
 from utils.config import Config
 
 from torch.utils.data import DataLoader, Dataset
@@ -42,7 +42,7 @@ logging.getLogger().setLevel(logging.CRITICAL)
 cnfg = Config()
 
 
-class ChatBot:
+class OpenAIClient:
 
     def __init__(
         self,
