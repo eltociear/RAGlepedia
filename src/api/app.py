@@ -1,8 +1,17 @@
 import asyncio
 from fastapi import FastAPI, WebSocket, HTTPException
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
+from clients import OpenAIClient, RAGVectorDatabaseClient
+
+# Initialize FASTAPI app
+app = FastAPI()
+templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 from httpx import AsyncClient
-from chatBot import ChatBot
+from src.api.clients.openai_client import ChatBot
 from utils.config import Config
 
 
@@ -91,10 +100,6 @@ async def chat_endpoint(websocket: WebSocket):
 
             # then append to history messages
             messages.append({"role": "assistant", "content": chatbot_response})
-
-            # # Broadcast the response to all connected clients
-            # for client in websocket_clients:
-            #     await client.send_text(chatbot_response)
 
     finally:
         # Remove the websocket from the list of clients if connection is closed

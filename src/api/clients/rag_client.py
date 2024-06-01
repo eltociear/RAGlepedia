@@ -14,7 +14,7 @@ from pinecone import ServerlessSpec, PodSpec
 load_dotenv()
 
 
-class VectorStore:
+class RAGVectorDatabaseClient:
 
     def __init__(self, index_name: str) -> None:
         self.index_name = index_name
